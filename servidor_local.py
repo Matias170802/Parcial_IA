@@ -4,7 +4,7 @@ import tensorflow as tf
 import numpy as np
 
 # Cargar el modelo
-modelo = tf.keras.models.load_model("\X-MEN.h5")
+modelo = tf.keras.models.load_model("X-MEN.h5")
 
 app = Flask(__name__)
 CORS(app)
