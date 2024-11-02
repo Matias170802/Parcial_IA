@@ -2,8 +2,4 @@ Flask
 Flask-Cors
 tensorflow
 numpy
-<<<<<<< HEAD
 gunicorn
-=======
-gunicorn
->>>>>>> 2971d43b682c53d6f8565209212c6e71f9f23b6e
