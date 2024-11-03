@@ -2,6 +2,7 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 import tensorflow as tf
 import numpy as np
+import os
 
 # Cargar el modelo
 modelo = tf.keras.models.load_model("X-MEN.h5")
@@ -64,4 +65,6 @@ def predict():
     }])
 
 if __name__ == '__main__':
-    app.run(port=5000)
+    # Obtener el puerto asignado por Render o usar 5000 por defecto para local
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
