@@ -1,0 +1,81 @@
+Este documento muestra la ultima salida de cada código ejecutado, para tener constancia de el entrenamiento del modelo: 
+
+	.data4.py: genero 5.000.000 de secuencias mutantes y no mutantes. En el archivo "conjunto_datos_mutantes.json" 
+	
+	.prueba.5: Salida del código de entrenamiento 
+
+2024-10-29 15:34:59.559744: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-10-29 15:35:00.224024: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+Funcionando
+Resultados de prueba guardados en resultado_prueba.json.
+2024-10-29 15:35:07.070294: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+Epoch 1/20
+2500/2500 ━━━━━━━━━━━━━━━━━━━━ 10s 4ms/step - accuracy: 0.5740 - loss: 0.6612
+Epoch 2/20
+2500/2500 ━━━━━━━━━━━━━━━━━━━━ 9s 4ms/step - accuracy: 0.7223 - loss: 0.5181
+Epoch 3/20
+2500/2500 ━━━━━━━━━━━━━━━━━━━━ 9s 3ms/step - accuracy: 0.7670 - loss: 0.4551  
+Epoch 4/20
+2500/2500 ━━━━━━━━━━━━━━━━━━━━ 9s 3ms/step - accuracy: 0.7945 - loss: 0.4138   
+Epoch 5/20
+2500/2500 ━━━━━━━━━━━━━━━━━━━━ 9s 3ms/step - accuracy: 0.8083 - loss: 0.3888  
+Epoch 6/20
+2500/2500 ━━━━━━━━━━━━━━━━━━━━ 9s 3ms/step - accuracy: 0.8245 - loss: 0.3670   
+Epoch 7/20
+2500/2500 ━━━━━━━━━━━━━━━━━━━━ 9s 3ms/step - accuracy: 0.8365 - loss: 0.3480  
+Epoch 8/20
+2500/2500 ━━━━━━━━━━━━━━━━━━━━ 9s 3ms/step - accuracy: 0.8471 - loss: 0.3275  
+Epoch 9/20
+2500/2500 ━━━━━━━━━━━━━━━━━━━━ 9s 4ms/step - accuracy: 0.8583 - loss: 0.3074  
+Epoch 10/20
+2500/2500 ━━━━━━━━━━━━━━━━━━━━ 9s 3ms/step - accuracy: 0.8700 - loss: 0.2884   
+Epoch 11/20
+2500/2500 ━━━━━━━━━━━━━━━━━━━━ 9s 4ms/step - accuracy: 0.8754 - loss: 0.2744  
+Epoch 12/20
+2500/2500 ━━━━━━━━━━━━━━━━━━━━ 9s 4ms/step - accuracy: 0.8861 - loss: 0.2549  
+Epoch 13/20
+2500/2500 ━━━━━━━━━━━━━━━━━━━━ 9s 3ms/step - accuracy: 0.8924 - loss: 0.2413  
+Epoch 14/20
+2500/2500 ━━━━━━━━━━━━━━━━━━━━ 9s 3ms/step - accuracy: 0.9019 - loss: 0.2223  
+Epoch 15/20
+2500/2500 ━━━━━━━━━━━━━━━━━━━━ 9s 3ms/step - accuracy: 0.9110 - loss: 0.2073  
+Epoch 16/20
+2500/2500 ━━━━━━━━━━━━━━━━━━━━ 9s 3ms/step - accuracy: 0.9195 - loss: 0.1863   
+Epoch 17/20
+2500/2500 ━━━━━━━━━━━━━━━━━━━━ 9s 3ms/step - accuracy: 0.9232 - loss: 0.1794  
+Epoch 18/20
+2500/2500 ━━━━━━━━━━━━━━━━━━━━ 9s 3ms/step - accuracy: 0.9329 - loss: 0.1611  
+Epoch 19/20
+2500/2500 ━━━━━━━━━━━━━━━━━━━━ 9s 4ms/step - accuracy: 0.9380 - loss: 0.1489
+Epoch 20/20
+2500/2500 ━━━━━━━━━━━━━━━━━━━━ 9s 3ms/step - accuracy: 0.9424 - loss: 0.1384
+625/625 ━━━━━━━━━━━━━━━━━━━━ 1s 1ms/step - accuracy: 0.8114 - loss: 0.6118
+
+Pérdida: 0.6037843823432922, Precisión: 0.8121500015258789
+
+Modelo guardado con éxito.
+
+Total de secuencias analizadas: 20000
+Secuecias predichas como mutantes: 10051
+Secuecias predichas como no mutantes: 9949
+                 precision    recall  f1-score   support
+
+           0       0.82      0.81      0.81     10120
+
+           0       0.82      0.81      0.81     10120
+           0       0.82      0.81      0.81     10120
+           1       0.80      0.82      0.81      9880
+
+
+    accuracy                           0.81     20000
+   macro avg       0.81      0.81      0.81     20000
+   macro avg       0.81      0.81      0.81     20000
+weighted avg       0.81      0.81      0.81     20000
+   macro avg       0.81      0.81      0.81     20000
+weighted avg       0.81      0.81      0.81     20000
+
+Entrenamiento completado.
+
+	Este modelo genero un 81% de precisión con los 5.000.000 de secuencias 
+	

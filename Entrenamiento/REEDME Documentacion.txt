@@ -1,0 +1,107 @@
+COMO EJECUTAR:
+
+
+Archivos:
+
+Complementar con Salida de Codigos.txt que muestra lo que dieron los códigos en el entrenamiento del Modelo IA
+
+DATA:
+
+Los archivos data son para generar matrices para entrenar al modelo "X-MEN"; generan matrices y las guardan en un archivo .json llamado conjunto_datos_mutantes.json
+
+	-data2.py: No funciono ya que generaba .csv (conjunto_datos_mutantes.csv) no pude utilizarlo para entrenar el modelo.
+	
+
+	-data3.py: Genera matrices de nxn definido (variable n), genera "num_ejemplos" matrices se puede modificar este parámetro. Solo genera matrices mutantes por filas, no por columna ni diagonales 
+	
+	-data4.py: Genera matrices de nxn con un n random entre 4 y 8, matrices de 4x4, 5x5, 6x6, 7x7, 8x8, 9x9 y 10x10; y si incluye mutante puede ser por fila por columna o por diagonal no una combinación de las mismas.
+
+PRUEBA:
+
+Los archivos prueba son los intentos de entrenamiento del modelo, siendo prueba5.py el ultimo resultado.
+	
+	-prueba5.py: Entrena a un modelo utilizando secuencias/matrices generadas por data4.py. 
+
+Explicación del modelo y sus capas:
+
+1-Definición del modelo secuencial:
+
+	modelo = tf.keras.models.Sequential([
+
+Aquí se inicia el modelo como secuencial, donde las capas se añadirán una tras otra.
+
+2-Capa de entrada con forma especificada:
+
+	tf.keras.layers.Input(shape=(tamaño_fijo, tamaño_fijo, 1)),  # Añadir canal para convolución
+
+Se define la entrada del modelo con un tamaño de tamaño_fijo x tamaño_fijo y un solo canal (el 1 final), útil para trabajar con imágenes en escala de grises o matrices 2D.
+
+3-Primera capa convolucional:
+
+
+
+	tf.keras.layers.Conv2D(32, kernel_size=(3, 3), activation='relu', padding='same'),
+
+Esta capa aplica 32 filtros de tamaño 3x3 sobre la imagen/matriz, detectando características básicas. padding='same' asegura que la salida tenga el mismo tamaño que la entrada.
+
+4-Segunda capa convolucional:
+
+	tf.keras.layers.Conv2D(64, kernel_size=(3, 3), activation='relu', padding='same'),
+
+Agrega 64 filtros de 3x3, detectando patrones más complejos en la salida de la capa anterior.
+
+5-Primera capa de agrupamiento (MaxPooling):
+
+	tf.keras.layers.MaxPooling2D(pool_size=(2, 2)),
+
+Reduce el tamaño de la matriz en un factor de 2 (2x2), capturando las características más relevantes para disminuir la complejidad del modelo.
+
+6-Tercera capa convolucional:
+
+	tf.keras.layers.Conv2D(128, kernel_size=(3, 3), activation='relu', padding='same'),
+
+Aquí se agregan 128 filtros para detectar características aún más complejas y específicas de la entrada.
+
+7-Segunda capa de agrupamiento (MaxPooling):
+
+	tf.keras.layers.MaxPooling2D(pool_size=(2, 2)),
+
+Nuevamente se reduce la matriz en un factor de 2 para resumir la información, ayudando a que el modelo aprenda características más generales.
+
+8-Capa de aplanamiento (Flatten):
+
+	tf.keras.layers.Flatten(),
+
+Convierte la salida 2D en un vector 1D, que puede ser usado por las capas densas.
+
+9-Primera capa densa (fully connected):
+
+	tf.keras.layers.Dense(128, activation='relu'),
+
+Una capa completamente conectada con 128 neuronas para aprender patrones complejos en los datos.
+
+10-Segunda capa densa:
+
+	tf.keras.layers.Dense(64, activation='relu'),
+
+Similar a la anterior, pero con 64 neuronas para ajustar la salida final.
+
+11-Capa de salida:
+
+	tf.keras.layers.Dense(1, activation='sigmoid')
+
+Esta capa tiene 1 neurona y usa sigmoid, devolviendo un valor entre 0 y 1, interpretado como la probabilidad de ser mutante o no.
+
+Cuando el modelo termina el entrenamiento genera un .json(resultado_prueba.json) que contiene las secuencias de practica que utilizo y dice cuantas son mutantes y cuantas no son mutantes. Y como ultimo guarda el modelo ya entrenado como X-MEN.h5
+
+VERIFICADOR
+
+Estos archivos verifican cuantos datos hay en conjunto_datos_mutantes.json
+
+	-verificador.py: Cuenta del total de las secuencias de conjunto_datos_mutantes.json cuantas son mutantes y cuantas no mutantes, dándonos un numero verdadero de todo nuestro conjunto de datos cuantos mutantes hay y cuantos no mutantes
+
+	-verificador2.py: Cuenta del total de secuencias analizadas por el modelo después de entrenar son mutantes y cuantas no son mutantes. cuenta del archivo resultado_prueba.json
+
+
+
+ 

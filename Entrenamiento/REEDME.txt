@@ -1,0 +1,11 @@
+Matias Anselmi
+
+El parcial lo quise realizar de una forma distinta, la detección de mutante o no mutante se hace atravez de una IA, para ser mas preciso de un Modelo que entrene con varios registros de secuencias de adn que consulta mi API de java.
+
+Para poder ejecutarlo solo lo pude hacer localmente ya que no podía renderizar el archivo de Python donde esta mi modelo.
+
+	1. Hay que correr el archivo servidor_local.py que esta en \IA\Entrenamiento IA y después ejecutar la aplicación de java, al hacer un post de persona con http://localhost:8080/api/v1/personas/crear , Se llama al servicio donde esta cargado el modelo y este responde si es True o False.
+
+	2. El modelo fue entrenado con 5.000.000 de secuencias donde se demoro aprox 3mins en estudiarlas y resolverlas. Para analizar mas esto ver el archivo REEDME Documentación.txt y Salida de Codigos.txt
+
+	3. El link de render de la API de Java es https://parcial-desarrolllo-de-software.onrender.com, pero devuelve siempre False porque no pude cargar el servidor de Python a render 
